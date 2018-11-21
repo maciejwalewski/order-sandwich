@@ -1,0 +1,14 @@
+$background: #e8a7ff88;
+$lighter: #E8A7FF;
+$light: #DB76FF;
+$default: #BF0AFF;	// Main Primary color */
+$dark: #6A0090;
+$darker: #52006F;
+
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Indie+Flower');
+
+@import './helpers/Reset.scss';
+@import './helpers/General.scss';
+@import './helpers/Responsive.scss';
+
+@import './components/NewOrder.scss';

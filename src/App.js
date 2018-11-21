@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import Hello from './components/Hello';
+import MainPage from '@/components/main/MainPage';
 
 class App extends Component {
   render() {
     return (
       <div>
-        Hello!!!
-        <Hello />
+        <MainPage />
       </div>
     )
   }

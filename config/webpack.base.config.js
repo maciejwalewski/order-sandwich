@@ -33,7 +33,10 @@ module.exports = env => {
           ]
         },
         resolve: {
-          extensions: ['*', '.js', '.jsx']
+          alias: {
+            '@': path.resolve(__dirname, APP_DIR),
+          },
+          extensions: ['*', '.js', '.jsx'],
         },
         plugins: [
           new HtmlWebpackPlugin({
