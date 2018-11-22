@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import NewOrder from "./NewOrder";
+import AllStages from "./AllStages";
 
 class MainPage extends Component {
   constructor() {
@@ -25,9 +26,8 @@ class MainPage extends Component {
         setTimeout(() => {
           that.setState(prevState => ({
             orderStarted: !prevState.orderStarted
-          }))
-        }, 1000)
-        ;
+          }));
+        }, 1000);
       }
     );
   }
@@ -42,9 +42,8 @@ class MainPage extends Component {
         setTimeout(() => {
           that.setState(prevState => ({
             sendOrderStartedDelay: !prevState.sendOrderStartedDelay
-          }))
-        }, 1000)
-        ;
+          }));
+        }, 1000);
       }
     );
   }
@@ -53,15 +52,17 @@ class MainPage extends Component {
     const { sendOrderStartedDelay, orderStarted } = this.state;
 
     return (
-      <div>
-        {orderStarted ? null : (
+      <main>
+        {orderStarted ? (
+          <AllStages />
+        ) : (
           <NewOrder
             startOrder={this._startOrder}
             orderStartedDelay={sendOrderStartedDelay}
           />
         )}
         <button onClick={this._endOrder}>helllo</button>
-      </div>
+      </main>
     );
   }
 }

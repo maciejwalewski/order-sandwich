@@ -1,0 +1,38 @@
+.stage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__choice {
+    padding: 20px 0;
+  }
+
+  &__input {
+    display: none;
+
+    &:checked {
+      +label {
+        border: 3px solid $darker;
+        background-color: $lighter;
+        box-shadow: 5px 5px 80px 5px #0000004a;
+      }
+    }
+  }
+
+  &__label {
+    font-size: 30px;
+    width: 250px;
+    padding: 12px 70px;
+    text-align: center;
+    border: 2px solid $light;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover {
+      border: 2px solid $default;
+      box-shadow: 5px 5px 80px 5px #0000004a;
+    }
+  }
+}
