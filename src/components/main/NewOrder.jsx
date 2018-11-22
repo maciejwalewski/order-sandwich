@@ -11,20 +11,23 @@ class NewOrder extends Component {
 
   componentDidMount() {
     let that = this;
-    this.setState({
-      animationStart: true,
-    }, () => {
-      setTimeout(() => {
-        that.setState({
-          animationStart: false,
-        })
-      }, 500);
-    });
+    this.setState(
+      {
+        animationStart: true
+      },
+      () => {
+        setTimeout(() => {
+          that.setState({
+            animationStart: false
+          });
+        }, 500);
+      }
+    );
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      animationStart: nextProps.orderStartedDelay
+      animationStart: nextProps.orderStarted
     });
   }
 
@@ -32,7 +35,11 @@ class NewOrder extends Component {
     const { startOrder } = this.props;
     const { animationStart } = this.state;
     return (
-      <section className={animationStart ? "create-new create-new--hidden" : "create-new"}>
+      <section
+        className={
+          animationStart ? "create-new create-new--hidden" : "create-new"
+        }
+      >
         <h2 className="create-new__header">
           Click the button below to make an order!
         </h2>

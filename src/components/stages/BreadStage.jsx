@@ -5,13 +5,33 @@ class BreadStage extends Component {
     super();
 
     this.state = {
-      currentStage: 1
+      visible: true,
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      visible: false,
+    });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.currentStage === 1) {
+      this.setState({
+        visible: true,
+      });
+    } else {
+      this.setState({
+        visible: false,
+      })
+    }
+  }
+
   render() {
+    const { visible } = this.state;
+
     return (
-      <section className="stage">
+      <section className={visible ? "stage" : "stage--hidden"}>
         <div className="stage__choice">
           <input
             type="radio"

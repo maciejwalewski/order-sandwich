@@ -1,8 +1,22 @@
+.all-stages {
+  opacity: 1;
+  margin: 0;
+  transition: all .5s ease;
+
+  &--hidden {
+    opacity: 0;
+    margin: 0 0 0 650px;
+  }
+}
+
 .stage {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+  transition: all .5s ease;
+  margin: 0;
 
   &__choice {
     padding: 20px 0;
@@ -34,5 +48,10 @@
       border: 2px solid $default;
       box-shadow: 5px 5px 80px 5px #0000004a;
     }
+  }
+
+  &--hidden {
+    opacity: 0;
+    margin: 0 0 0 650px;
   }
 }

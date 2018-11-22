@@ -9,7 +9,8 @@ class MainPage extends Component {
 
     this.state = {
       orderStarted: false,
-      sendOrderStartedDelay: false
+      sendOrderStartedDelay: false,
+      unmountingOrder: false
     };
 
     this._startOrder = this._startOrder.bind(this);
@@ -17,48 +18,59 @@ class MainPage extends Component {
   }
 
   _startOrder() {
+    this.setState({
+      unmountingOrder: false
+    });
+
     let that = this;
     this.setState(
       prevState => ({
         sendOrderStartedDelay: !prevState.sendOrderStartedDelay
       }),
-      function() {
+      () => {
         setTimeout(() => {
           that.setState(prevState => ({
             orderStarted: !prevState.orderStarted
           }));
-        }, 1000);
+        }, 400);
       }
     );
   }
 
   _endOrder() {
+    this.setState({
+      unmountingOrder: true
+    });
+
     let that = this;
-    this.setState(
-      prevState => ({
-        orderStarted: !prevState.orderStarted
-      }),
-      function() {
-        setTimeout(() => {
-          that.setState(prevState => ({
-            sendOrderStartedDelay: !prevState.sendOrderStartedDelay
-          }));
-        }, 1000);
-      }
-    );
+
+    setTimeout(() => {
+      this.setState(
+        prevState => ({
+          orderStarted: !prevState.orderStarted
+        }),
+        () => {
+          setTimeout(() => {
+            that.setState(prevState => ({
+              sendOrderStartedDelay: !prevState.sendOrderStartedDelay
+            }));
+          }, 30);
+        }
+      );
+    }, 270);
   }
 
   render() {
-    const { sendOrderStartedDelay, orderStarted } = this.state;
+    const { sendOrderStartedDelay, orderStarted, unmountingOrder } = this.state;
 
     return (
       <main>
         {orderStarted ? (
-          <AllStages />
+          <AllStages unmountingOrder={unmountingOrder} />
         ) : (
           <NewOrder
             startOrder={this._startOrder}
-            orderStartedDelay={sendOrderStartedDelay}
+            orderStarted={sendOrderStartedDelay}
           />
         )}
         <button onClick={this._endOrder}>helllo</button>
