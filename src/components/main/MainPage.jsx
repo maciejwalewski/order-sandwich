@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import NewOrder from "./NewOrder";
-import AllStages from "./AllStages";
+import { AllStages } from "./AllStages";
 
 class MainPage extends Component {
   constructor() {

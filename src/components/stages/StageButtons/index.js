@@ -1,0 +1,1 @@
+export { default as StageButtons } from './container/StageButtons';

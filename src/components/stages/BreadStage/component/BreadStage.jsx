@@ -6,27 +6,37 @@ class BreadStage extends Component {
 
     this.state = {
       visible: true,
-      chosenBread: 0,
+      chosenBread: 0
     };
 
     this.handleBread = this.handleBread.bind(this);
   }
 
   componentDidMount() {
+    const { currentStage } = this.props;
+
     this.setState({
-      visible: false,
+      visible: false
     });
+
+    if (currentStage === 1) {
+      setTimeout(() => {
+        this.setState({ visible: true });
+      }, 50);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.currentStage === 1) {
-      this.setState({
-        visible: true,
-      });
+    if (nextProps.currentStage === 1) {
+      setTimeout(() => {
+        this.setState({
+          visible: true
+        });
+      }, 50);
     } else {
       this.setState({
-        visible: false,
-      })
+        visible: false
+      });
     }
   }
 
@@ -39,8 +49,10 @@ class BreadStage extends Component {
   render() {
     const { visible } = this.state;
 
+    console.log(this.props.currentStage);
+
     return (
-      <section className={visible ? "stage" : "stage--hidden"}>
+      <section className={visible ? "stage" : "stage stage--hidden"}>
         <div className="stage__choice">
           <input
             type="radio"
@@ -48,7 +60,7 @@ class BreadStage extends Component {
             id="bread1"
             className="stage__input"
             value="bread1"
-            onChange={(event) => this.handleBread(event)}
+            onChange={event => this.handleBread(event)}
           />
           <label className="stage__label" htmlFor="bread1">
             BREAD 1{/* <img src={monster.images.thumb} alt={monster.name} /> */}
@@ -61,7 +73,7 @@ class BreadStage extends Component {
             id="bread2"
             className="stage__input"
             value="bread2"
-            onChange={(event) => this.handleBread(event)}
+            onChange={event => this.handleBread(event)}
           />
           <label className="stage__label" htmlFor="bread2">
             BREAD 2{/* <img src={monster.images.thumb} alt={monster.name} /> */}

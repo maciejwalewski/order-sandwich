@@ -2,6 +2,9 @@
   opacity: 1;
   margin: 0;
   transition: all .5s ease;
+  position: relative;
+  height: 400px;
+  min-width: 400px;
 
   &--hidden {
     opacity: 0;
@@ -17,6 +20,11 @@
   opacity: 1;
   transition: all .5s ease;
   margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
   &__choice {
     padding: 20px 0;
@@ -54,4 +62,9 @@
     opacity: 0;
     margin: 0 0 0 650px;
   }
+}
+
+.stages-nav {
+  position: absolute;
+  bottom: 20px;
 }

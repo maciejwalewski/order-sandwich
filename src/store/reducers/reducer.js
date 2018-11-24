@@ -1,10 +1,9 @@
 const initialState = {
   sandwichDetails: {
     bread: 0,
-    ingredients: [
-      
-    ],
-  }
+    ingredients: [],
+  },
+  currentStage: 1,
 };
 
 export default function sandwiches(
@@ -19,6 +18,12 @@ export default function sandwiches(
         ingredients: state.sandwichDetails.ingredients,
         bread: action.payload,
       }
+    }
+
+    case "SET_STAGE":
+    return {
+      ...state,
+      currentStage: state.currentStage + action.payload
     }
   }
   return state;

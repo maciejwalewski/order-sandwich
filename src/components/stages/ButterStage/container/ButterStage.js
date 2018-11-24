@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import BreadStage from '../component/BreadStage';
+import ButterStage from '../component/ButterStage';
 
 const mapStateToProps = state => {
   return {
@@ -10,14 +10,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setBread: (bread) => {
+    setButter: (butter) => {
       dispatch({
-        type: "SET_BREAD",
-        payload: bread,
+        type: "SET_BUTTER",
+        payload: butter,
       })
     }
   };
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(BreadStage);
+export default connect(mapStateToProps, mapDispatchToProps)(ButterStage);
