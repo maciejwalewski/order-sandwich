@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import BreadStage from "@/components/stages/BreadStage";
+import { BreadStage } from "@/components/stages/BreadStage";
 import StageButtons from "@/components/stages/StageButtons";
 
 class AllStages extends Component {

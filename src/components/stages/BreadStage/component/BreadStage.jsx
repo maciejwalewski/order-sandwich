@@ -6,7 +6,10 @@ class BreadStage extends Component {
 
     this.state = {
       visible: true,
+      chosenBread: 0,
     };
+
+    this.handleBread = this.handleBread.bind(this);
   }
 
   componentDidMount() {
@@ -27,6 +30,12 @@ class BreadStage extends Component {
     }
   }
 
+  handleBread(event) {
+    const { setBread } = this.props;
+
+    setBread(event.target.value);
+  }
+
   render() {
     const { visible } = this.state;
 
@@ -38,6 +47,8 @@ class BreadStage extends Component {
             name="bread"
             id="bread1"
             className="stage__input"
+            value="bread1"
+            onChange={(event) => this.handleBread(event)}
           />
           <label className="stage__label" htmlFor="bread1">
             BREAD 1{/* <img src={monster.images.thumb} alt={monster.name} /> */}
@@ -49,6 +60,8 @@ class BreadStage extends Component {
             name="bread"
             id="bread2"
             className="stage__input"
+            value="bread2"
+            onChange={(event) => this.handleBread(event)}
           />
           <label className="stage__label" htmlFor="bread2">
             BREAD 2{/* <img src={monster.images.thumb} alt={monster.name} /> */}
