@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import BreadStage from "@/components/stages/BreadStage";
+import StageButtons from "@/components/stages/StageButtons";
 
 class AllStages extends Component {
   constructor() {
@@ -27,6 +28,7 @@ class AllStages extends Component {
     return (
       <section className={unmountingOrder ? "all-stages all-stages--hidden" : "allStages" }>
         <BreadStage currentStage={currentStage} />
+        <StageButtons />
       </section>
     );
   }
