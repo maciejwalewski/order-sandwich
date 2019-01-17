@@ -1,22 +1,25 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import StageButtons from '../component/StageButtons';
+import StageButtons from "../component/StageButtons";
 
 const mapStateToProps = state => {
   return {
+    currentStage: state.currentStage
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    setStage: (stage) => {
+    setStage: stage => {
       dispatch({
         type: "SET_STAGE",
-        payload: stage,
-      })
+        payload: stage
+      });
     }
   };
 };
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(StageButtons);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StageButtons);

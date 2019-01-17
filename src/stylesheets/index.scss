@@ -1,15 +1,16 @@
 $background: #e8a7ff88;
-$lighter: #E8A7FF;
-$light: #DB76FF;
-$default: #BF0AFF;	// Main Primary color */
-$dark: #6A0090;
-$darker: #52006F;
+$lighter: #e8a7ff;
+$light: #db76ff;
+$default: #bf0aff; // Main Primary color */
+$dark: #6a0090;
+$darker: #52006f;
 
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Indie+Flower');
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC|Indie+Flower");
 
-@import './helpers/Reset.scss';
-@import './helpers/General.scss';
-@import './helpers/Responsive.scss';
+@import "./helpers/Variables.scss";
+@import "./helpers/Reset.scss";
+@import "./helpers/General.scss";
+@import "./helpers/Responsive.scss";
 
-@import './components/NewOrder.scss';
-@import './components/Stages.scss';
+@import "./components/NewOrder.scss";
+@import "./components/Stages.scss";

@@ -1,7 +1,7 @@
 .all-stages {
   opacity: 1;
   margin: 0;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   position: relative;
   height: 400px;
   min-width: 400px;
@@ -18,7 +18,7 @@
   justify-content: center;
   align-items: center;
   opacity: 1;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   margin: 0;
   position: absolute;
   top: 0;
@@ -34,7 +34,7 @@
     display: none;
 
     &:checked {
-      +label {
+      + label {
         border: 3px solid $darker;
         background-color: $lighter;
         box-shadow: 5px 5px 80px 5px #0000004a;
@@ -50,7 +50,7 @@
     border: 2px solid $light;
     border-radius: 100px;
     cursor: pointer;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 
     &:hover {
       border: 2px solid $default;
@@ -67,4 +67,16 @@
 .stages-nav {
   position: absolute;
   bottom: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  width: 100%;
+
+  &__btn {
+    @extend .btn-white;
+
+    // &--disabled {
+    //   @extend .btn-white--disabled;
+    // }
+  }
 }

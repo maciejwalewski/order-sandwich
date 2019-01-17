@@ -49,8 +49,6 @@ class BreadStage extends Component {
   render() {
     const { visible } = this.state;
 
-    console.log(this.props.currentStage);
-
     return (
       <section className={visible ? "stage" : "stage stage--hidden"}>
         <div className="stage__choice">
