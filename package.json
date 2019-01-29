@@ -12,7 +12,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --config config/webpack.base.config.js --open --hot --history-api-fallback --env.PLATFORM=local --env.VERSION=stag",
     "prebuild": "webpack --mode production --config config/webpack.prod.config.js --env.PLATFORM=production --env.VERSION=stag --progress",
-    "build": "node server"
+    "build": "node server",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +33,7 @@
     "@babel/polyfill": "^7.0.0-beta.51",
     "@babel/preset-env": "^7.0.0-beta.51",
     "@babel/preset-react": "^7.0.0-beta.51",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.0-beta.0",
     "copy-webpack-plugin": "^4.5.1",
@@ -57,6 +59,17 @@
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ]
+    ],
+    "setupFiles": [
+      "./src/setupTests.js"
+    ],
+    "moduleDirectories": [
+      "src",
+      "node_modules"
+    ],
+    "moduleNameMapper": {
+      "^@": "<rootDir>/src",
+      "^.+\\.(css|less|scss)$": "babel-jest"
+    }
   }
 }
