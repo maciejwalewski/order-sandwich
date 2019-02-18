@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
-import { BreadStage } from "@/components/stages/BreadStage";
-import { ButterStage } from "@/components/stages/ButterStage";
-import { StageButtons } from "@/components/stages/StageButtons";
+import { BreadStage, ButterStage, StageButtons } from "@/components/stages";
 
 class AllStages extends Component {
   render() {

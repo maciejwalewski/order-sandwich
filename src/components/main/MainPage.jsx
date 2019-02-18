@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import NewOrder from "./NewOrder";
-import { AllStages } from "./AllStages";
+import NewOrder from "../elements/NewOrder";
+import { AllStages } from "./";
 
 class MainPage extends Component {
   constructor() {
@@ -13,11 +13,11 @@ class MainPage extends Component {
       unmountingOrder: false
     };
 
-    this._startOrder = this._startOrder.bind(this);
-    this._endOrder = this._endOrder.bind(this);
+    this.startOrder = this.startOrder.bind(this);
+    this.endOrder = this.endOrder.bind(this);
   }
 
-  _startOrder() {
+  startOrder() {
     this.setState({
       unmountingOrder: false
     });
@@ -37,7 +37,7 @@ class MainPage extends Component {
     );
   }
 
-  _endOrder() {
+  endOrder() {
     this.setState({
       unmountingOrder: true
     });
@@ -69,11 +69,11 @@ class MainPage extends Component {
           <AllStages unmountingOrder={unmountingOrder} />
         ) : (
           <NewOrder
-            startOrder={this._startOrder}
+            startOrder={this.startOrder}
             orderStarted={sendOrderStartedDelay}
           />
         )}
-        <button onClick={this._endOrder}>helllo</button>
+        <button onClick={this.endOrder}>Back to the main page</button>
       </main>
     );
   }
