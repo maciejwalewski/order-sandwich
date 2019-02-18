@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
-import MainPage from '@/components/main/MainPage';
-
-import { Provider } from "react-redux";
+import { MainPage, Order } from '@/components/main/index';
+import React, { Fragment } from 'react';
+import { Provider } from 'react-redux';
+import { HashRouter, Route } from 'react-router-dom';
 import { store } from './store/store';
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <MainPage />
-      </Provider>
-    )
-  }
-}
+const App = () => (
+  <Provider store={ store }>
+    <HashRouter>
+      <Fragment>
+        <Route exact path="/" component={ MainPage } />
+        <Route exact path="/order" component={ Order } />
+      </Fragment>
+    </HashRouter>
+  </Provider>
+);
 
 export default App;

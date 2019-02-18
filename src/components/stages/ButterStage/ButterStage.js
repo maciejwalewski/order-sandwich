@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class ButterStage extends Component {
   constructor() {
@@ -6,7 +6,7 @@ class ButterStage extends Component {
 
     this.state = {
       visible: true,
-      chosenBread: 0,
+      chosenBread: 0
     };
 
     this.handleButter = this.handleButter.bind(this);
@@ -14,21 +14,21 @@ class ButterStage extends Component {
 
   componentDidMount() {
     this.setState({
-      visible: false,
+      visible: false
     });
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.currentStage === 2) {
+    if (nextProps.currentStage === 2) {
       setTimeout(() => {
         this.setState({
-          visible: true,
+          visible: true
         });
       }, 50);
     } else {
       this.setState({
-        visible: false,
-      })
+        visible: false
+      });
     }
   }
 
@@ -42,18 +42,19 @@ class ButterStage extends Component {
     const { visible } = this.state;
 
     return (
-      <section className={visible ? "stage" : "stage stage--hidden"}>
+      <section className={ visible ? 'stage' : 'stage stage--hidden' }>
         <div className="stage__choice">
           <input
             type="radio"
             name="butter"
             id="butter1"
             className="stage__input"
-            value={true}
-            onChange={(event) => this.handleButter(event)}
+            value={ true }
+            onChange={ event => this.handleButter(event) }
           />
           <label className="stage__label" htmlFor="butter1">
-            Yes, please{/* <img src={monster.images.thumb} alt={monster.name} /> */}
+            Yes, please
+            {/* <img src={monster.images.thumb} alt={monster.name} /> */}
           </label>
         </div>
         <div className="stage__choice">
@@ -62,11 +63,12 @@ class ButterStage extends Component {
             name="butter"
             id="butter2"
             className="stage__input"
-            value={false}
-            onChange={(event) => this.handleButter(event)}
+            value={ false }
+            onChange={ event => this.handleButter(event) }
           />
           <label className="stage__label" htmlFor="butter2">
-            No, thank You{/* <img src={monster.images.thumb} alt={monster.name} /> */}
+            No, thank You
+            {/* <img src={monster.images.thumb} alt={monster.name} /> */}
           </label>
         </div>
       </section>

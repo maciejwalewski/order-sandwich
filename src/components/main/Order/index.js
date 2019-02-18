@@ -1,19 +1,16 @@
 import { connect } from 'react-redux';
 
-import BreadStage from './BreadStage';
+import Order from './Order';
 
 const mapStateToProps = state => {
-  return {
-    currentStage: state.currentStage
-  };
+  return {};
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    setBread: bread => {
+    resetOrder: () => {
       dispatch({
-        type: 'SET_BREAD',
-        payload: bread
+        type: 'RESET_ORDER'
       });
     }
   };
@@ -22,4 +19,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BreadStage);
+)(Order);

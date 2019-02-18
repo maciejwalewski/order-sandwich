@@ -79,12 +79,11 @@ time,
 mark,
 audio,
 video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
 }
 
 input,
@@ -93,19 +92,19 @@ button,
 select,
 div,
 a {
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 input:focus {
-	outline: 0;
+  outline: 0;
 }
 
 button:focus {
-	outline: 0;
+  outline: 0;
 }
 
 button::-moz-focus-inner {
-	border: 0;
+  border: 0;
 }
 
 article,
@@ -119,37 +118,37 @@ hgroup,
 menu,
 nav,
 section {
-	display: block;
+  display: block;
 }
 
 body {
-	line-height: 1;
-	height: auto;
+  line-height: 1;
+  height: auto;
 }
 
 ol,
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 blockquote,
 q {
-	quotes: none;
+  quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: '';
-	content: none;
+  content: "";
+  content: none;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }

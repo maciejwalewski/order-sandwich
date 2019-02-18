@@ -1,0 +1,16 @@
+.reset-button {
+  outline: 0;
+  border: 3px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  padding: 5px 25px;
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  font-size: 18px;
+
+  &:hover {
+    border: 3px solid $light;
+  }
+}
