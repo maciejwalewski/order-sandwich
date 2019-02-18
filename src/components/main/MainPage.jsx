@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import NewOrder from "../elements/NewOrder";
-import { AllStages } from "./";
+import NewOrder from '../elements/NewOrder';
+import { AllStages } from './';
 
 class MainPage extends Component {
   constructor() {
@@ -61,7 +61,11 @@ class MainPage extends Component {
   }
 
   render() {
-    const { sendOrderStartedDelay, orderStarted, unmountingOrder } = this.state;
+    const {
+      sendOrderStartedDelay,
+      orderStarted,
+      unmountingOrder
+    } = this.state;
 
     return (
       <main>

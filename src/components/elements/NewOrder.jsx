@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class NewOrder extends Component {
   constructor() {
@@ -35,14 +35,8 @@ class NewOrder extends Component {
     const { startOrder } = this.props;
     const { animationStart } = this.state;
     return (
-      <section
-        className={
-          animationStart ? "create-new create-new--hidden" : "create-new"
-        }
-      >
-        <h2 className="create-new__header">
-          Click the button below to make an order!
-        </h2>
+      <section className={animationStart ? 'create-new create-new--hidden' : 'create-new'}>
+        <h2 className="create-new__header">Click the button below to make an order!</h2>
         <button className="create-new__button" onClick={startOrder}>
           Create Sandwich
         </button>
