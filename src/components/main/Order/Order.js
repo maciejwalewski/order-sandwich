@@ -1,11 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-import {
-  BreadStage,
-  ButterStage,
-  StageButtons
-} from '@/components/stages';
+import { BreadStage, ButterStage, StageButtons, IngredientsStage } from '@/components/stages';
 
 const Order = ({ resetOrder }) => {
   return (
@@ -13,11 +9,12 @@ const Order = ({ resetOrder }) => {
       <section className="all-stages">
         <BreadStage />
         <ButterStage />
+        <IngredientsStage />
         <StageButtons />
       </section>
       <Link to="/">
         <button className="reset-button" onClick={ resetOrder }>
-          Back to the main page
+					Back to the main page
         </button>
       </Link>
     </Fragment>
