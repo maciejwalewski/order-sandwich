@@ -1,6 +1,6 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import ButterStage from "./ButterStage";
+import ButterStage from './ButterStage';
 
 const mapStateToProps = state => {
   return {
@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => {
   return {
     setButter: butter => {
       dispatch({
-        type: "SET_BUTTER",
+        type: 'SET_BUTTER',
         payload: butter
       });
     }

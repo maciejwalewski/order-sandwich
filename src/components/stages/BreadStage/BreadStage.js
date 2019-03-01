@@ -1,27 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
 const BreadStage = ({ currentStage, setBread }) => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(false);
-
     if (currentStage === 1) {
-      setTimeout(() => {
-        setVisible(true);
-      }, 50);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (props.currentStage === 1) {
       setTimeout(() => {
         setVisible(true);
       }, 50);
     } else {
       setVisible(false);
     }
-  }, [props]);
+  }, [currentStage]);
 
   const handleBread = event => {
     setBread(event.target.value);
@@ -39,8 +29,7 @@ const BreadStage = ({ currentStage, setBread }) => {
           onChange={ event => handleBread(event) }
         />
         <label className="stage__label" htmlFor="bread1">
-          BREAD 1
-          {/* <img src={monster.images.thumb} alt={monster.name} /> */}
+					BREAD 1{/* <img src={monster.images.thumb} alt={monster.name} /> */}
         </label>
       </div>
       <div className="stage__choice">
@@ -53,8 +42,7 @@ const BreadStage = ({ currentStage, setBread }) => {
           onChange={ event => handleBread(event) }
         />
         <label className="stage__label" htmlFor="bread2">
-          BREAD 2
-          {/* <img src={monster.images.thumb} alt={monster.name} /> */}
+					BREAD 2{/* <img src={monster.images.thumb} alt={monster.name} /> */}
         </label>
       </div>
     </section>
