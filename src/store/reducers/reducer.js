@@ -2,7 +2,10 @@ const initialState = {
   sandwichDetails: {
     bread: 0,
     butter: false,
-    ingredients: {}
+    ingredients: {
+      ham: 1,
+      cheese: 2
+    }
   },
   currentStage: 1
 };

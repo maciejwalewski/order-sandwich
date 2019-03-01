@@ -41,7 +41,7 @@ const ButterStage = ({ currentStage, setButter }) => {
           id="butter2"
           className="stage__input"
           value={ false }
-          onChange={ event => this.handleButter(event) }
+          onChange={ event => handleButter(event) }
         />
         <label className="stage__label" htmlFor="butter2">
 					No, thank You
