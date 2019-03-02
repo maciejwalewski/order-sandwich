@@ -1,11 +1,6 @@
 const initialState = {
   sandwichDetails: {
-    bread: 0,
-    butter: false,
-    ingredients: {
-      ham: 1,
-      cheese: 2
-    }
+    ingredients: {}
   },
   currentStage: 1
 };
