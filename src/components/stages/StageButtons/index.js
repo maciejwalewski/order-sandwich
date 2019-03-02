@@ -1,6 +1,6 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import StageButtons from "./StageButtons";
+import StageButtons from './StageButtons';
 
 const mapStateToProps = state => {
   return {
@@ -12,8 +12,13 @@ const mapDispatchToProps = dispatch => {
   return {
     setStage: stage => {
       dispatch({
-        type: "SET_STAGE",
+        type: 'SET_STAGE',
         payload: stage
+      });
+    },
+    finishOrder: () => {
+      dispatch({
+        type: 'FINISH_ORDER'
       });
     }
   };

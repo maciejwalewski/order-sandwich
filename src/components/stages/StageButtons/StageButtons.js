@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const StageButtons = ({ currentStage, setStage }) => {
+const StageButtons = ({ currentStage, setStage, finishOrder }) => {
   const [{ minStep, maxStep }, setState] = useState({
     minStep: 1,
     maxStep: 3
@@ -24,6 +24,11 @@ const StageButtons = ({ currentStage, setStage }) => {
       {currentStage !== maxStep && (
         <button className="stages-nav__btn" onClick={ () => changeStage(true) }>
 					Next
+        </button>
+      )}
+      {currentStage === maxStep && (
+        <button className="stages-nav__btn" onClick={ () => finishOrder() }>
+					Finish order
         </button>
       )}
     </nav>
