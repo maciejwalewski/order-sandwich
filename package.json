@@ -16,7 +16,7 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Maciej Walewski",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",

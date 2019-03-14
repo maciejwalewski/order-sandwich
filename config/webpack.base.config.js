@@ -1,57 +1,58 @@
-const path = require("path");
-const webpack = require("webpack");
-const merge = require("webpack-merge");
+const path = require('path');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const APP_DIR = path.resolve(__dirname, "../src");
+const APP_DIR = path.resolve(__dirname, '../src');
 
 module.exports = env => {
   const { PLATFORM, VERSION } = env;
   return merge([
     {
-      entry: ["@babel/polyfill", APP_DIR],
+      devServer: {
+        port: 3000
+      },
+      entry: ['@babel/polyfill', APP_DIR],
       module: {
         rules: [
           {
             test: /\.js|jsx$/,
             exclude: /node_modules/,
             use: {
-              loader: "babel-loader"
+              loader: 'babel-loader'
             }
           },
           {
             test: /\.scss$/,
             use: [
-              PLATFORM === "production"
-                ? MiniCssExtractPlugin.loader
-                : "style-loader",
-              "css-loader",
-              "sass-loader"
+              PLATFORM === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+              'css-loader',
+              'sass-loader'
             ]
           }
         ]
       },
       resolve: {
         alias: {
-          "@": path.resolve(__dirname, APP_DIR)
+          '@': path.resolve(__dirname, APP_DIR)
         },
-        extensions: ["*", ".js", ".jsx"],
+        extensions: ['*', '.js', '.jsx'],
         enforceExtension: false
       },
       plugins: [
         new HtmlWebpackPlugin({
-          template: "./src/index.html",
-          filename: "./index.html"
+          template: './src/index.html',
+          filename: './index.html'
         }),
         new webpack.DefinePlugin({
-          "process.env.VERSION": JSON.stringify(env.VERSION),
-          "process.env.PLATFORM": JSON.stringify(env.PLATFORM)
+          'process.env.VERSION': JSON.stringify(env.VERSION),
+          'process.env.PLATFORM': JSON.stringify(env.PLATFORM)
         }),
         new MiniCssExtractPlugin({
-          filename: `styles/[name].css`
+          filename: 'styles/[name].css'
         })
         // new CopyWebpackPlugin([ { from: 'src/static' } ]),
       ]
