@@ -1,12 +1,24 @@
 .account-panel {
 	display: flex;
 	flex-flow: column nowrap;
+	align-items: center;
+
+	&__username {
+		font-size: 22px;
+		text-align: center;
+		margin-bottom: 45px;
+		letter-spacing: 1px;
+	}
 }
 
 .account-form {
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
+	margin-bottom: 20px;
+	max-height: 180px;
+	transition: all .25s ease-in;
+	overflow: hidden;
 
 	&__input {
 		font-size: 22px;
@@ -28,5 +40,15 @@
 		@extend .btn-white;
 		width: 120px;
 		font-size: 18px;
+
+		&--create {
+			border: 3px solid red;
+			margin-bottom: 5px;
+			width: 200px;
+		}
+	}
+
+	&--hidden {
+		max-height: 0px;
 	}
 }

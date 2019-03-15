@@ -7,6 +7,12 @@ const firebaseAuth = firebase.auth();
 
 export const loginFirebase = async passes => {
   const [email, password] = passes;
-  const auth = await firebaseAuth.signInWithEmailAndPassword(email, password);
-  return auth;
+  const loginAuth = await firebaseAuth.signInWithEmailAndPassword(email, password);
+  return loginAuth;
+};
+
+export const signUpFirebase = async passes => {
+  const [email, password] = passes;
+  const signUpAuth = await firebaseAuth.createUserWithEmailAndPassword(email, password);
+  return signUpAuth;
 };

@@ -1,8 +1,18 @@
-import { AUTH_LOGIN_TRY, AUTH_LOGIN_SUCCESS, AUTH_LOGIN_FAIL } from '../actions/auth';
+import {
+  AUTH_LOGIN_TRY,
+  AUTH_LOGIN_SUCCESS,
+  AUTH_LOGIN_FAIL,
+  SIGN_UP_TRY,
+  SIGN_UP_SUCCESS,
+  SIGN_UP_FAIL
+} from '../actions/auth';
 
 const initialState = {
   loggedIn: false,
-  loading: false
+  loading: false,
+  registerLoading: false,
+  registerSuccess: false,
+  currentUser: ''
 };
 
 export default function(state = initialState, action) {
@@ -16,13 +26,31 @@ export default function(state = initialState, action) {
     return {
       ...state,
       loading: false,
-      loggedIn: true
+      loggedIn: true,
+      currentUser: action.payload
     };
   case AUTH_LOGIN_FAIL:
     return {
       ...state,
       loading: false,
       loggedIn: false
+    };
+  case SIGN_UP_TRY:
+    return {
+      ...state,
+      registerLoading: true
+    };
+  case SIGN_UP_SUCCESS:
+    return {
+      ...state,
+      registerLoading: false,
+      registerSuccess: true
+    };
+  case SIGN_UP_FAIL:
+    return {
+      ...state,
+      registerLoading: false,
+      registerSuccess: false
     };
   }
   return state;
