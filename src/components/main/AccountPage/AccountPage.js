@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Preloader from '@/components/sharable/Preloader';
 
 const AccountPage = ({ loggedIn, loading, authLogin, signUp, registerLoading, registerSuccess, currentUser }) => {
   const [{ loginEmail, loginPassword, registerEmail, registerPassword }, setCreds] = useState({
@@ -43,17 +44,15 @@ const AccountPage = ({ loggedIn, loading, authLogin, signUp, registerLoading, re
         >
 					Log in
         </button>
-        {loading && <span>loading</span>}
+        {loading && <Preloader />}
         {loggedIn && <span>Logged in!</span>}
       </form>
-      {/* {!signPanelVisible && ( */}
       <button
         className="account-form__button account-form__button--create"
         onClick={ () => setSignPanel(!signPanelVisible) }
       >
 				Create account
       </button>
-      {/* )} */}
       <form className={ signPanelVisible ? 'account-form' : 'account-form account-form--hidden' }>
         <input
           onChange={ e => handleChange(e) }
@@ -78,7 +77,7 @@ const AccountPage = ({ loggedIn, loading, authLogin, signUp, registerLoading, re
         >
 					Sign up
         </button>
-        {registerLoading && <span>creation in process</span>}
+        {registerLoading && <Preloader />}
         {registerSuccess && <span>Account created! :)</span>}
       </form>
       <Link to="/">
