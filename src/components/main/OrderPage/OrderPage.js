@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { BreadStage, ButterStage, StageButtons, IngredientsStage } from '@/components/stages';
 import { OrderSummary } from '@/components/main';
 
-const Order = ({ resetOrder }) => {
+const OrderPage = ({ resetOrder }) => {
   return (
     <Fragment>
       <section className="all-stages">
@@ -23,4 +23,4 @@ const Order = ({ resetOrder }) => {
   );
 };
 
-export default Order;
+export default OrderPage;

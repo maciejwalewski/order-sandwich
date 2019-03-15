@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Order from './Order';
+import OrderPage from './OrderPage';
 
 const mapStateToProps = state => {
   return {};
@@ -19,4 +19,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Order);
+)(OrderPage);

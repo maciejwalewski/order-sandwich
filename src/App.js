@@ -1,4 +1,4 @@
-import { MainPage, Order } from '@/components/main/index';
+import { MainPage, OrderPage, AccountPage } from '@/components/main/index';
 import React, { Fragment } from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter, Route } from 'react-router-dom';
@@ -9,7 +9,8 @@ const App = () => (
     <HashRouter>
       <Fragment>
         <Route exact path="/" component={ MainPage } />
-        <Route exact path="/order" component={ Order } />
+        <Route exact path="/order" component={ OrderPage } />
+        <Route exact path="/account" component={ AccountPage } />
       </Fragment>
     </HashRouter>
   </Provider>
