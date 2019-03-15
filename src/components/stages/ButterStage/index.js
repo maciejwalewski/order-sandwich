@@ -4,7 +4,7 @@ import ButterStage from './ButterStage';
 
 const mapStateToProps = state => {
   return {
-    currentStage: state.currentStage
+    currentStage: state.appFlow.currentStage
   };
 };
 

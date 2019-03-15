@@ -4,8 +4,8 @@ import IngredientsStage from './IngredientsStage';
 
 const mapStateToProps = state => {
   return {
-    currentStage: state.currentStage,
-    ingredients: state.sandwichDetails.ingredients
+    currentStage: state.appFlow.currentStage,
+    ingredients: state.sandwiches.sandwichDetails.ingredients
   };
 };
 

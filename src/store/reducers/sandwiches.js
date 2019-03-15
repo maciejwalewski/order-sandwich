@@ -1,13 +1,14 @@
+import { SET_BREAD, SET_BUTTER, SET_INGREDIENTS } from '../actions/sandwiches';
+
 const initialState = {
   sandwichDetails: {
     ingredients: {}
-  },
-  currentStage: 1
+  }
 };
 
-export default function sandwiches(state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
-  case 'SET_BREAD':
+  case SET_BREAD:
     return {
       ...state,
       sandwichDetails: {
@@ -16,7 +17,7 @@ export default function sandwiches(state = initialState, action) {
       }
     };
 
-  case 'SET_BUTTER':
+  case SET_BUTTER:
     return {
       ...state,
       sandwichDetails: {
@@ -25,24 +26,13 @@ export default function sandwiches(state = initialState, action) {
       }
     };
 
-  case 'SET_INGREDIENTS':
+  case SET_INGREDIENTS:
     return {
       ...state,
       sandwichDetails: {
         ...state.sandwichDetails,
         ingredients: action.payload
       }
-    };
-
-  case 'SET_STAGE':
-    return {
-      ...state,
-      currentStage: state.currentStage + action.payload
-    };
-
-  case 'RESET_ORDER':
-    return {
-      ...initialState
     };
   }
   return state;

@@ -4,7 +4,7 @@ import OrderSummary from './OrderSummary';
 
 const mapStateToProps = state => {
   return {
-    sandwichDetails: state.sandwichDetails
+    sandwichDetails: state.sandwiches.sandwichDetails
   };
 };
 

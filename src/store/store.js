@@ -1,12 +1,14 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { createLogger } from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
 
-import sandwiches from './reducers/reducer';
+import rootReducer from './reducers/index';
+import authSaga from './sagas/auth';
 
-const composeEnhancers =
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const sagaMiddleware = createSagaMiddleware();
 
-export const store = createStore(
-  sandwiches,
-  composeEnhancers(applyMiddleware(createLogger()))
-);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
+sagaMiddleware.run(authSaga);
+
+export default store;

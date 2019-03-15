@@ -5,4 +5,8 @@ firebase.initializeApp(config);
 
 const firebaseAuth = firebase.auth();
 
-export default firebaseAuth;
+export const loginFirebase = async passes => {
+  const [email, password] = passes;
+  const auth = await firebaseAuth.signInWithEmailAndPassword(email, password);
+  return auth;
+};

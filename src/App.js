@@ -2,7 +2,7 @@ import { MainPage, OrderPage, AccountPage } from '@/components/main/index';
 import React, { Fragment } from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter, Route } from 'react-router-dom';
-import { store } from './store/store';
+import store from './store/store';
 
 const App = () => (
   <Provider store={ store }>

@@ -4,7 +4,7 @@ import StageButtons from './StageButtons';
 
 const mapStateToProps = state => {
   return {
-    currentStage: state.currentStage
+    currentStage: state.appFlow.currentStage
   };
 };
 

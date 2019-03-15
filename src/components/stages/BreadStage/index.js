@@ -4,7 +4,7 @@ import BreadStage from './BreadStage';
 
 const mapStateToProps = state => {
   return {
-    currentStage: state.currentStage
+    currentStage: state.appFlow.currentStage
   };
 };
 
