@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const StageButtons = ({ currentStage, setStage, finishOrder }) => {
+const StageButtons = ({ currentStage, setStage, finishOrder, sandwichDetails }) => {
   const [{ minStep, maxStep }, setState] = useState({
     minStep: 1,
     maxStep: 3
@@ -27,7 +27,7 @@ const StageButtons = ({ currentStage, setStage, finishOrder }) => {
         </button>
       )}
       {currentStage === maxStep && (
-        <button className="stages-nav__btn" onClick={ () => finishOrder() }>
+        <button className="stages-nav__btn" onClick={ () => finishOrder(sandwichDetails) }>
 					Finish order
         </button>
       )}

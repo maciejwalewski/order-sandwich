@@ -32,6 +32,8 @@ function* trySignUp({ payload }) {
   }
 }
 
-export default function*() {
-  yield all([takeLatest(AUTH_LOGIN_TRY, tryLogin), takeLatest(SIGN_UP_TRY, trySignUp)]);
-}
+// export default function*() {
+//   yield all([takeLatest(AUTH_LOGIN_TRY, tryLogin), takeLatest(SIGN_UP_TRY, trySignUp)]);
+// }
+
+export const auth = [takeLatest(AUTH_LOGIN_TRY, tryLogin), takeLatest(SIGN_UP_TRY, trySignUp)];

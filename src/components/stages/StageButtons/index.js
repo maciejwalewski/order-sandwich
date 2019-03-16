@@ -1,26 +1,19 @@
 import { connect } from 'react-redux';
 
 import StageButtons from './StageButtons';
+import { setStage, finishOrder } from '@/store/actions/appFlow';
 
 const mapStateToProps = state => {
   return {
-    currentStage: state.appFlow.currentStage
+    currentStage: state.appFlow.currentStage,
+    sandwichDetails: state.sandwiches.sandwichDetails
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    setStage: stage => {
-      dispatch({
-        type: 'SET_STAGE',
-        payload: stage
-      });
-    },
-    finishOrder: () => {
-      dispatch({
-        type: 'FINISH_ORDER'
-      });
-    }
+    setStage: stage => dispatch(setStage(stage)),
+    finishOrder: order => dispatch(finishOrder(order))
   };
 };
 

@@ -20,40 +20,47 @@ const AccountPage = ({ loggedIn, loading, authLogin, signUp, registerLoading, re
   return (
     <section className="account-panel">
       {currentUser && <header className="account-panel__username">Nice to see You back {currentUser} !</header>}
-      <form className="account-form">
-        <input
-          onChange={ e => handleChange(e) }
-          className="account-form__input"
-          id="loginEmail"
-          required
-          placeholder="E-mail"
-          type="email"
-        />
-        <input
-          onChange={ e => handleChange(e) }
-          className="account-form__input"
-          id="loginPassword"
-          required
-          placeholder="Password"
-          type="password"
-        />
-        <button
-          className="account-form__button"
-          onClick={ () => authLogin(loginEmail, loginPassword) }
-          type="submit"
-        >
-					Log in
-        </button>
-        {loading && <Preloader />}
-        {loggedIn && <span>Logged in!</span>}
-      </form>
+      {!loggedIn && (
+        <form className="account-form">
+          <input
+            onChange={ e => handleChange(e) }
+            className="account-form__input"
+            id="loginEmail"
+            required
+            placeholder="E-mail"
+            type="email"
+          />
+          <input
+            onChange={ e => handleChange(e) }
+            className="account-form__input"
+            id="loginPassword"
+            required
+            placeholder="Password"
+            type="password"
+          />
+          <button
+            className="account-form__button"
+            onClick={ () => authLogin(loginEmail, loginPassword) }
+            type="submit"
+          >
+						Log in
+          </button>
+          {loading && <Preloader />}
+        </form>
+      )}
       <button
         className="account-form__button account-form__button--create"
         onClick={ () => setSignPanel(!signPanelVisible) }
       >
 				Create account
       </button>
-      <form className={ signPanelVisible ? 'account-form' : 'account-form account-form--hidden' }>
+      <form
+        className={
+          signPanelVisible
+            ? 'account-form account-form--register'
+            : 'account-form account-form--register account-form--hidden'
+        }
+      >
         <input
           onChange={ e => handleChange(e) }
           className="account-form__input"

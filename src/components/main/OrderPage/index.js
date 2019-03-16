@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import OrderPage from './OrderPage';
+import { resetOrder } from '@/store/actions/appFlow';
 
 const mapStateToProps = state => {
   return {};
@@ -8,11 +9,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    resetOrder: () => {
-      dispatch({
-        type: 'RESET_ORDER'
-      });
-    }
+    resetOrder: () => dispatch(resetOrder())
   };
 };
 
