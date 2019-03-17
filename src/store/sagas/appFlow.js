@@ -20,7 +20,11 @@ function* finishOrder() {
     console.log('success', req);
     // tutaj dodaj PUT z SUCCESS
   } catch (err) {
-    alert(err.response.data);
+    if (err.response && err.response.data) {
+      alert(err.response.data);
+    } else {
+      alert(err);
+    }
     // tutaj dodaj PUT z ERROR i bedzie bajeczka!
   }
 }
