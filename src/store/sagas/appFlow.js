@@ -3,6 +3,7 @@ import { FINISH_ORDER } from '../actions/appFlow';
 
 function* finishOrder({ payload }) {
   console.log('payload', payload);
+  const { currentUser, order } = payload;
 }
 
 // export default function*() {
