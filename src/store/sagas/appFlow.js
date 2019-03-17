@@ -1,13 +1,28 @@
-import { takeLatest } from 'redux-saga/effects';
+import { takeLatest, select, call } from 'redux-saga/effects';
 import { FINISH_ORDER } from '../actions/appFlow';
+import post from '@/requests/postRequest';
 
-function* finishOrder({ payload }) {
-  console.log('payload', payload);
-  const { currentUser, order } = payload;
+function* finishOrder() {
+  const state = yield select();
+  // console.log('payload', state);
+  const sandwichDetails = state.sandwiches.sandwichDetails;
+  const orderData = {
+    user: state.auth.currentUser,
+    time: new Date()
+  };
+  const requestData = {
+    ...sandwichDetails,
+    orderData
+  };
+
+  try {
+    const req = yield call(post, ['/order', requestData]);
+    console.log('success', req);
+    // tutaj dodaj PUT z SUCCESS
+  } catch (err) {
+    alert(err.response.data);
+    // tutaj dodaj PUT z ERROR i bedzie bajeczka!
+  }
 }
-
-// export default function*() {
-//   yield takeLatest(FINISH_ORDER, finishOrder);
-// }
 
 export const appFlow = [takeLatest(FINISH_ORDER, finishOrder)];

@@ -5,9 +5,7 @@ import { setStage, finishOrder } from '@/store/actions/appFlow';
 
 const mapStateToProps = state => {
   return {
-    currentStage: state.appFlow.currentStage,
-    sandwichDetails: state.sandwiches.sandwichDetails,
-    currentUser: state.auth.currentUser
+    currentStage: state.appFlow.currentStage
   };
 };
 
