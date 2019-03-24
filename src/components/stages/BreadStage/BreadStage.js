@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { breadFields } from '@/constants/fields';
+
 const BreadStage = ({ currentStage, setBread }) => {
   const [visible, setVisible] = useState(false);
 
@@ -19,32 +21,23 @@ const BreadStage = ({ currentStage, setBread }) => {
 
   return (
     <section className={ visible ? 'stage' : 'stage stage--hidden' }>
-      <div className="stage__choice">
-        <input
-          type="radio"
-          name="bread"
-          id="bread1"
-          className="stage__input"
-          value="bread1"
-          onChange={ event => handleBread(event) }
-        />
-        <label className="stage__label" htmlFor="bread1">
-					BREAD 1{/* <img src={monster.images.thumb} alt={monster.name} /> */}
-        </label>
-      </div>
-      <div className="stage__choice">
-        <input
-          type="radio"
-          name="bread"
-          id="bread2"
-          className="stage__input"
-          value="bread2"
-          onChange={ event => handleBread(event) }
-        />
-        <label className="stage__label" htmlFor="bread2">
-					BREAD 2{/* <img src={monster.images.thumb} alt={monster.name} /> */}
-        </label>
-      </div>
+      <span className="indie">Please choose your bread type:</span>
+      {breadFields.map(bread => (
+        <div className="stage__choice">
+          <input
+            name="bread"
+            className="stage__input"
+            type={ bread.type }
+            id={ bread.id }
+            value={ bread.id }
+            onChange={ event => handleBread(event) }
+          />
+          <label className="stage__label" htmlFor={ bread.id }>
+            {bread.label}
+            {/* <img src={monster.images.thumb} alt={monster.name} /> */}
+          </label>
+        </div>
+      ))}
     </section>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { butterFields } from '@/constants/fields';
 
 const ButterStage = ({ currentStage, setButter }) => {
   const [visible, setVisible] = useState(false);
@@ -20,34 +21,23 @@ const ButterStage = ({ currentStage, setButter }) => {
 
   return (
     <section className={ visible ? 'stage' : 'stage stage--hidden' }>
-      <div className="stage__choice">
-        <input
-          type="radio"
-          name="butter"
-          id="butter1"
-          className="stage__input"
-          value={ true }
-          onChange={ event => handleButter(event) }
-        />
-        <label className="stage__label" htmlFor="butter1">
-					Yes, please
-          {/* <img src={monster.images.thumb} alt={monster.name} /> */}
-        </label>
-      </div>
-      <div className="stage__choice">
-        <input
-          type="radio"
-          name="butter"
-          id="butter2"
-          className="stage__input"
-          value={ false }
-          onChange={ event => handleButter(event) }
-        />
-        <label className="stage__label" htmlFor="butter2">
-					No, thank You
-          {/* <img src={monster.images.thumb} alt={monster.name} /> */}
-        </label>
-      </div>
+      <span className="indie">Would You like some butter?</span>
+      {butterFields.map(butter => (
+        <div className="stage__choice">
+          <input
+            type={ butter.type }
+            id={ butter.id }
+            name="butter"
+            className="stage__input"
+            value={ butter.value }
+            onChange={ event => handleButter(event) }
+          />
+          <label className="stage__label" htmlFor={ butter.id }>
+            {butter.label}
+            {/* <img src={monster.images.thumb} alt={monster.name} /> */}
+          </label>
+        </div>
+      ))}
     </section>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ingredientFields } from '@/constants/fields';
 
 const IngredientsStage = ({ currentStage, setIngredients, ingredients }) => {
   const [visible, setVisible] = useState(false);
@@ -25,54 +26,24 @@ const IngredientsStage = ({ currentStage, setIngredients, ingredients }) => {
 
   return (
     <section className={ visible ? 'stage' : 'stage stage--hidden' }>
-      <div className="stage__choice">
-        <span
-          id="ham"
-          className="stage__label stage__label--addOne"
-          onClick={ event => handleIngredient(event.target.id, true) }
-        >
-					HAM
-        </span>
-        <button
-          id="ham"
-          className="stage__removeOne"
-          onClick={ event => handleIngredient(event.target.id, false) }
-        >
-					-1
-        </button>
-      </div>
-      <div className="stage__choice">
-        <span
-          id="cheese"
-          className="stage__label stage__label--addOne"
-          onClick={ event => handleIngredient(event.target.id, true) }
-        >
-					CHEESE
-        </span>
-        <button
-          id="cheese"
-          className="stage__removeOne"
-          onClick={ event => handleIngredient(event.target.id, false) }
-        >
-					-1
-        </button>
-      </div>
-      <div className="stage__choice">
-        <span
-          id="tomato"
-          className="stage__label stage__label--addOne"
-          onClick={ event => handleIngredient(event.target.id, true) }
-        >
-					TOMATO
-        </span>
-        <button
-          id="tomato"
-          className="stage__removeOne"
-          onClick={ event => handleIngredient(event.target.id, false) }
-        >
-					-1
-        </button>
-      </div>
+      {ingredientFields.map(ing => (
+        <div className="stage__choice">
+          <span
+            id={ ing.id }
+            className="stage__label stage__label--addOne"
+            onClick={ event => handleIngredient(event.target.id, true) }
+          >
+            {ing.label}
+          </span>
+          <button
+            id={ ing.id }
+            className="stage__removeOne"
+            onClick={ event => handleIngredient(event.target.id, false) }
+          >
+						-1
+          </button>
+        </div>
+      ))}
     </section>
   );
 };
