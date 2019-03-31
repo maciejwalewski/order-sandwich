@@ -1,10 +1,9 @@
-import { takeLatest, select, call } from 'redux-saga/effects';
-import { FINISH_ORDER } from '../actions/appFlow';
+import { takeLatest, select, call, put } from 'redux-saga/effects';
+import { FINISH_ORDER, FINISH_ORDER_SUCCESS, FINISH_ORDER_FAIL } from '../actions/appFlow';
 import post from '@/requests/postRequest';
 
 function* finishOrder() {
   const state = yield select();
-  // console.log('payload', state);
   const sandwichDetails = state.sandwiches.sandwichDetails;
   const orderData = {
     user: state.auth.currentUser,
@@ -18,14 +17,16 @@ function* finishOrder() {
   try {
     const req = yield call(post, ['/order', requestData]);
     console.log('success', req);
-    // tutaj dodaj PUT z SUCCESS
+    const payload = 'Set the sails! We are on our way!';
+    yield put({ type: FINISH_ORDER_SUCCESS, payload });
   } catch (err) {
     if (err.response && err.response.data) {
-      alert(err.response.data);
+      const payload = err.response.data;
+      yield put({ type: FINISH_ORDER_FAIL, payload });
     } else {
-      alert(err);
+      const payload = err;
+      yield put({ type: FINISH_ORDER_FAIL, payload });
     }
-    // tutaj dodaj PUT z ERROR i bedzie bajeczka!
   }
 }
 

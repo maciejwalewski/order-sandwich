@@ -10,6 +10,8 @@
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	color: white;
+	min-height: 0vh;
+	transition: all 0.3s ease-in-out;
 
 	&__header {
 		position: absolute;
@@ -22,10 +24,28 @@
 		padding: 8px 21px;
 		z-index: -3;
 		background-color: $light;
-		font-family: "Indie Flower";
+		font-family: 'Indie Flower';
 	}
 
 	&__line {
 		font-size: 21px;
+		padding: 3px 0;
+	}
+
+	&--finished {
+		min-height: 100vh;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+	}
+
+	&__success {
+		font-size: 40px;
+		color: green;
+	}
+
+	&__error {
+		font-size: 40px;
+		color: red;
 	}
 }

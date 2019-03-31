@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const OrderSummary = ({ sandwichDetails }) => {
+const OrderSummary = ({ sandwichDetails, orderSuccess, orderError }) => {
   const { bread, butter, ingredients } = sandwichDetails;
 
   const [{ ingredientsKeys }, setState] = useState({
@@ -15,8 +15,13 @@ const OrderSummary = ({ sandwichDetails }) => {
   }, [ingredients]);
 
   return (
-    <section className="order-summary">
+    <section className={ `order-summary ${(orderSuccess || orderError) && 'order-summary--finished'}` }>
       <header className="order-summary__header">Order Summary</header>
+      {(orderSuccess || orderError) && (
+        <span className={ `${orderSuccess ? 'order-summary__success' : 'order-summary__error'}` }>
+          {orderSuccess || orderError}
+        </span>
+      )}
       {bread && (
         <div className="order-summary__line">
           <span>Bread:</span>
@@ -29,12 +34,16 @@ const OrderSummary = ({ sandwichDetails }) => {
           <span>{butter ? 'naturally yes' : 'please no!'}</span>
         </div>
       )}
-      {ingredientsKeys.map(key => (
-        <div className="order-summary__line">
-          <span>{key}:</span>
-          <span>{ingredients[key]}</span>
-        </div>
-      ))}
+      {ingredientsKeys.map(key => {
+        if (ingredients[key] > 0) {
+          return (
+            <div className="order-summary__line">
+              <span>{key}:</span>
+              <span>{ingredients[key]}</span>
+            </div>
+          );
+        }
+      })}
     </section>
   );
 };

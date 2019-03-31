@@ -1,4 +1,4 @@
-import { SET_BREAD, SET_BUTTER, SET_INGREDIENTS } from '../actions/sandwiches';
+import { SET_BREAD, SET_BUTTER, SET_INGREDIENTS, RESET_ORDER } from '../actions/sandwiches';
 
 const initialState = {
   sandwichDetails: {
@@ -33,6 +33,11 @@ export default function(state = initialState, action) {
         ...state.sandwichDetails,
         ingredients: action.payload
       }
+    };
+
+  case RESET_ORDER:
+    return {
+      ...initialState
     };
   }
   return state;
