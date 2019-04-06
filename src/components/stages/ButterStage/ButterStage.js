@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { butterFields } from '@/constants/fields';
+import butter_choice from '@/assets/butter_choice.png';
+import { StageButtons } from '@/components/stages';
 
 const ButterStage = ({ currentStage, setButter }) => {
   const [visible, setVisible] = useState(false);
@@ -21,7 +23,8 @@ const ButterStage = ({ currentStage, setButter }) => {
 
   return (
     <section className={ visible ? 'stage' : 'stage stage--hidden' }>
-      <span className="indie">Would You like some butter?</span>
+      <img src={ butter_choice } className="stage__image" />
+      <span className="stage__question indie">Would You like some butter?</span>
       {butterFields.map(butter => (
         <div className="stage__choice">
           <input
@@ -34,10 +37,10 @@ const ButterStage = ({ currentStage, setButter }) => {
           />
           <label className="stage__label" htmlFor={ butter.id }>
             {butter.label}
-            {/* <img src={monster.images.thumb} alt={monster.name} /> */}
           </label>
         </div>
       ))}
+      <StageButtons />
     </section>
   );
 };

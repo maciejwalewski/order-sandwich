@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ingredientFields } from '@/constants/fields';
+import { StageButtons } from '@/components/stages';
 
 const IngredientsStage = ({ currentStage, setIngredients, ingredients }) => {
   const [visible, setVisible] = useState(false);
@@ -44,6 +45,7 @@ const IngredientsStage = ({ currentStage, setIngredients, ingredients }) => {
           </button>
         </div>
       ))}
+      <StageButtons />
     </section>
   );
 };

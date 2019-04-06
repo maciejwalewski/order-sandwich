@@ -3,7 +3,7 @@
 	margin: 0;
 	transition: all 0.5s ease;
 	position: relative;
-	height: 400px;
+	height: 600px;
 	min-width: 400px;
 
 	&--hidden {
@@ -25,6 +25,10 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
+
+	&__image {
+		height: 150px;
+	}
 
 	&__choice {
 		margin: 5px 0;
@@ -94,7 +98,7 @@
 		}
 
 		&:not(:active) {
-			transition: all .25s ease-in;
+			transition: all 0.25s ease-in;
 		}
 
 		&:active {
@@ -106,6 +110,11 @@
 		opacity: 0;
 		margin: 0 0 0 650px;
 	}
+
+	&__question {
+		margin: 15px;
+		font-size: 20px;
+	}
 }
 
 .stages-nav {
@@ -113,12 +122,12 @@
 	bottom: 20px;
 	display: flex;
 	flex-flow: row nowrap;
-	justify-content: space-around;
+	justify-content: center;
 	width: 100%;
 
 	&__btn {
 		@extend .btn-white;
-
+		margin: 0 10px;
 		// &--disabled {
 		//   @extend .btn-white--disabled;
 		// }

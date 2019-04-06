@@ -11,7 +11,7 @@ const OrderPage = ({ resetOrder }) => {
         <BreadStage />
         <ButterStage />
         <IngredientsStage />
-        <StageButtons />
+        {/* <StageButtons /> */}
       </section>
       <OrderSummary />
       <Link to="/">

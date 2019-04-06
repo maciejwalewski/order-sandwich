@@ -2,14 +2,17 @@ export const breadFields = [
   {
     type: 'radio',
     id: 'bread1',
-    label: 'BREAD 1',
-    image: 'someUrl'
+    label: 'BREAD 1'
   },
   {
     type: 'radio',
     id: 'bread2',
-    label: 'BREAD 2',
-    image: 'someUrl'
+    label: 'BREAD 2'
+  },
+  {
+    type: 'radio',
+    id: 'bread3',
+    label: 'BREAD 3'
   }
 ];
 

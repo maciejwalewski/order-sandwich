@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
 import { breadFields } from '@/constants/fields';
+import bread_choice from '@/assets/bread_choice.png';
+import { StageButtons } from '@/components/stages';
 
 const BreadStage = ({ currentStage, setBread }) => {
   const [visible, setVisible] = useState(false);
@@ -21,7 +22,8 @@ const BreadStage = ({ currentStage, setBread }) => {
 
   return (
     <section className={ visible ? 'stage' : 'stage stage--hidden' }>
-      <span className="indie">Please choose your bread type:</span>
+      <img src={ bread_choice } className="stage__image" />
+      <span className="stage__question indie">Please choose your bread type:</span>
       {breadFields.map(bread => (
         <div className="stage__choice">
           <input
@@ -34,10 +36,10 @@ const BreadStage = ({ currentStage, setBread }) => {
           />
           <label className="stage__label" htmlFor={ bread.id }>
             {bread.label}
-            {/* <img src={monster.images.thumb} alt={monster.name} /> */}
           </label>
         </div>
       ))}
+      <StageButtons />
     </section>
   );
 };
