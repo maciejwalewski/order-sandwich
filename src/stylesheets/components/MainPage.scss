@@ -1,3 +1,12 @@
+.main-page-image {
+	position: fixed;
+	right: -250px;
+	bottom: 40%;
+	transform: translate(0, 50%) rotate(20deg);
+	opacity: 0.8;
+	z-index: -10;
+}
+
 .reset-button {
 	// outline: 0;
 	@extend .btn-white;
@@ -15,7 +24,7 @@
 	flex-wrap: wrap;
 	margin: 0 0 0 0;
 	opacity: 1;
-	transition: all .5s ease;
+	transition: all 0.5s ease;
 
 	&--hidden {
 		margin: -400px 0 0 0;
