@@ -4,7 +4,7 @@ export default ([endpoint, data]) => {
   // new Promise((resolve, reject) => {
   return axios({
     method: 'POST',
-    url: `http://localhost:5000${endpoint}`,
+    url: `https://europe-west1-order-3078b.cloudfunctions.net/sandwich${endpoint}`,
     headers: {
       type: 'application/json'
     },
