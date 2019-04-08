@@ -5,6 +5,7 @@
 	position: relative;
 	height: 600px;
 	min-width: 400px;
+	max-height: 85vh;
 
 	&--hidden {
 		opacity: 0;

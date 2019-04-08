@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Preloader from '@/components/sharable/Preloader';
+import { FaChevronLeft } from 'react-icons/fa';
 
 const AccountPage = ({ loggedIn, loading, authLogin, signUp, registerLoading, registerSuccess, currentUser }) => {
   const [{ loginEmail, loginPassword, registerEmail, registerPassword }, setCreds] = useState({
@@ -88,7 +89,9 @@ const AccountPage = ({ loggedIn, loading, authLogin, signUp, registerLoading, re
         {registerSuccess && <span>Account created! :)</span>}
       </form>
       <Link to="/">
-        <button className="reset-button">Back to the main page</button>
+        <button className="reset-button">
+          <FaChevronLeft />
+        </button>
       </Link>
     </section>
   );
