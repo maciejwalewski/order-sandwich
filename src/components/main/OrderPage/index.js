@@ -4,7 +4,9 @@ import OrderPage from './OrderPage';
 import { resetOrder } from '@/store/actions/appFlow';
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    orderLoading: state.appFlow.orderLoading
+  };
 };
 
 const mapDispatchToProps = dispatch => {

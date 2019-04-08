@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 import { BreadStage, ButterStage, StageButtons, IngredientsStage } from '@/components/stages';
 import { OrderSummary } from '@/components/main';
+import Preloader from '@/components/sharable/Preloader';
 
-const OrderPage = ({ resetOrder }) => {
+const OrderPage = ({ resetOrder, orderLoading }) => {
   return (
     <Fragment>
       <section className="all-stages">
@@ -13,6 +14,7 @@ const OrderPage = ({ resetOrder }) => {
         <IngredientsStage />
         {/* <StageButtons /> */}
       </section>
+      {orderLoading && <Preloader />}
       <OrderSummary />
       <Link to="/">
         <button className="reset-button" onClick={ resetOrder }>

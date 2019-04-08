@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const OrderSummary = ({ sandwichDetails, orderSuccess, orderError }) => {
   const { bread, butter, ingredients } = sandwichDetails;
+  const [orderOpened, toggleOrder] = useState(false);
 
   const [{ ingredientsKeys }, setState] = useState({
     ingredientsKeys: []
@@ -15,8 +16,10 @@ const OrderSummary = ({ sandwichDetails, orderSuccess, orderError }) => {
   }, [ingredients]);
 
   return (
-    <section className={ `order-summary ${(orderSuccess || orderError) && 'order-summary--finished'}` }>
-      <header className="order-summary__header">Order Summary</header>
+    <section className={ `order-summary ${(orderSuccess || orderError || orderOpened) && 'order-summary--opened'}` }>
+      <header onClick={ () => toggleOrder(!orderOpened) } className="order-summary__header">
+				Order Summary
+      </header>
       {(orderSuccess || orderError) && (
         <span className={ `${orderSuccess ? 'order-summary__success' : 'order-summary__error'}` }>
           {orderSuccess || orderError}

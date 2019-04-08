@@ -4,13 +4,13 @@
 	width: 500px;
 	background-color: $lighter;
 	text-align: center;
-	padding: 17px 0;
+	padding: 0;
 	border: 1px solid white;
 	border-bottom: 0px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	color: white;
-	min-height: 0vh;
+	height: 0;
 	transition: all 0.3s ease-in-out;
 
 	&__header {
@@ -22,9 +22,10 @@
 		border-top-left-radius: 10px;
 		border-top-right-radius: 10px;
 		padding: 8px 21px;
-		z-index: -3;
+		z-index: 3;
 		background-color: $light;
 		font-family: 'Indie Flower';
+		cursor: pointer;
 	}
 
 	&__line {
@@ -32,11 +33,12 @@
 		padding: 3px 0;
 	}
 
-	&--finished {
-		min-height: 100vh;
+	&--opened {
+		height: 60vh;
 		display: flex;
 		flex-flow: column nowrap;
 		justify-content: center;
+		padding: 17px 0;
 	}
 
 	&__success {

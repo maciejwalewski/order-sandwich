@@ -1,9 +1,10 @@
-import { SET_STAGE, RESET_ORDER, FINISH_ORDER_SUCCESS, FINISH_ORDER_FAIL } from '../actions/appFlow';
+import { SET_STAGE, RESET_ORDER, FINISH_ORDER, FINISH_ORDER_SUCCESS, FINISH_ORDER_FAIL } from '../actions/appFlow';
 
 const initialState = {
   currentStage: 1,
   orderError: '',
-  orderSuccess: ''
+  orderSuccess: '',
+  orderLoading: false
 };
 
 export default function(state = initialState, action) {
@@ -17,16 +18,23 @@ export default function(state = initialState, action) {
     return {
       ...initialState
     };
+  case FINISH_ORDER:
+    return {
+      ...state,
+      orderLoading: true
+    };
   case FINISH_ORDER_SUCCESS:
     return {
       ...state,
-      orderSuccess: action.payload
+      orderSuccess: action.payload,
+      orderLoading: false
     };
 
   case FINISH_ORDER_FAIL:
     return {
       ...state,
-      orderError: action.payload
+      orderError: action.payload,
+      orderLoading: false
     };
   }
   return state;
