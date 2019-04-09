@@ -2,6 +2,7 @@
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
+	width: 350px;
 
 	&__username {
 		font-size: 22px;
@@ -17,7 +18,8 @@
 	align-items: center;
 	margin-bottom: 20px;
 	max-height: 200px;
-	transition: all .25s ease-in;
+	width: 100%;
+	transition: all 0.25s ease-in;
 	overflow: hidden;
 	border: 2px solid $lighter;
 	background-color: $light;
@@ -29,10 +31,10 @@
 		font-size: 22px;
 		padding: 7px 15px;
 		border-radius: 15px;
-		min-width: 300px;
+		width: 100%;
 		outline: 0;
 		margin-bottom: 5px;
-		transition: all .15s ease-in;
+		transition: all 0.15s ease-in;
 		border: 1px solid grey;
 		text-align: center;
 
