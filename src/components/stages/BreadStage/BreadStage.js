@@ -22,24 +22,30 @@ const BreadStage = ({ currentStage, setBread }) => {
 
   return (
     <section className={ visible ? 'stage' : 'stage stage--hidden' }>
-      <img src={ bread_choice } className="stage__image" />
-      <span className="stage__question indie">Please choose your bread type:</span>
-      {breadFields.map(bread => (
-        <div className="stage__choice">
-          <input
-            name="bread"
-            className="stage__input"
-            type={ bread.type }
-            id={ bread.id }
-            value={ bread.id }
-            onChange={ event => handleBread(event) }
-          />
-          <label className="stage__label" htmlFor={ bread.id }>
-            {bread.label}
-          </label>
-        </div>
-      ))}
-      <StageButtons />
+      <div className="stage__part">
+        <img src={ bread_choice } className="stage__image" />
+        <span className="stage__question indie">Please choose your bread type:</span>
+      </div>
+      <div className="stage__part">
+        {breadFields.map(bread => (
+          <div className="stage__choice">
+            <input
+              name="bread"
+              className="stage__input"
+              type={ bread.type }
+              id={ bread.id }
+              value={ bread.id }
+              onChange={ event => handleBread(event) }
+            />
+            <label className="stage__label" htmlFor={ bread.id }>
+              {bread.label}
+            </label>
+          </div>
+        ))}
+      </div>
+      <div className="stage__part">
+        <StageButtons />
+      </div>
     </section>
   );
 };

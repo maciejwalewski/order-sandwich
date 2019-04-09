@@ -3,9 +3,20 @@
 	margin: 0;
 	transition: all 0.5s ease;
 	position: relative;
-	height: 600px;
+	height: 100%;
 	min-width: 400px;
 	max-height: 85vh;
+	min-height: 100%;
+	overflow-y: scroll;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__wrapper {
+		min-height: 550px;
+		position: relative;
+		width: 100%;
+	}
 
 	&--hidden {
 		opacity: 0;
@@ -16,7 +27,7 @@
 .stage {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
 	opacity: 1;
 	transition: all 0.5s ease;
@@ -26,6 +37,14 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
+
+	&__part {
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
 
 	&__image {
 		height: 150px;
@@ -119,8 +138,7 @@
 }
 
 .stages-nav {
-	position: absolute;
-	bottom: 20px;
+	margin: 15px 0;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
@@ -128,7 +146,7 @@
 
 	&__btn {
 		@extend .btn-white;
-		margin: 0 10px;
+		margin: 0 10px 30px;
 		// &--disabled {
 		//   @extend .btn-white--disabled;
 		// }

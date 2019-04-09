@@ -5,8 +5,6 @@
 	background-color: $lighter;
 	text-align: center;
 	padding: 0;
-	border: 1px solid white;
-	border-bottom: 0px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	color: white;
@@ -26,6 +24,7 @@
 		background-color: $light;
 		font-family: 'Indie Flower';
 		cursor: pointer;
+		white-space: nowrap;
 	}
 
 	&__line {
@@ -39,6 +38,8 @@
 		flex-flow: column nowrap;
 		justify-content: center;
 		padding: 17px 0;
+		border: 1px solid white;
+		border-bottom: 0;
 	}
 
 	&__success {

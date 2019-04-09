@@ -13,7 +13,6 @@ import { loginFirebase, signUpFirebase } from '@/firebase/index';
 function* tryLogin({ payload }) {
   try {
     const userData = yield call(loginFirebase, [payload.email, payload.password]);
-    console.log('userdata', userData);
     yield put({ type: AUTH_LOGIN_SUCCESS, payload: userData.user.email });
   } catch (err) {
     yield put({ type: AUTH_LOGIN_FAIL });
@@ -24,7 +23,6 @@ function* tryLogin({ payload }) {
 function* trySignUp({ payload }) {
   try {
     const userData = yield call(signUpFirebase, [payload.email, payload.password]);
-    console.log('userdata', userData);
     yield put({ type: SIGN_UP_SUCCESS });
   } catch (err) {
     yield put({ type: SIGN_UP_FAIL });

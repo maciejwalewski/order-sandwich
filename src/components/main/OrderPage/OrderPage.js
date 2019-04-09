@@ -10,10 +10,12 @@ const OrderPage = ({ resetOrder, orderLoading }) => {
   return (
     <Fragment>
       <section className="all-stages">
-        <BreadStage />
-        <ButterStage />
-        <IngredientsStage />
-        {/* <StageButtons /> */}
+        <div className="all-stages__wrapper">
+          <BreadStage />
+          <ButterStage />
+          <IngredientsStage />
+          {/* <StageButtons /> */}
+        </div>
       </section>
       {orderLoading && <Preloader />}
       <OrderSummary />

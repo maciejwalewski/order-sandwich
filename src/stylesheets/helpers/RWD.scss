@@ -12,4 +12,23 @@
 			font-size: 30px;
 		}
 	}
+
+	.reset-button {
+		left: 10px;
+		bottom: 10px;
+	}
+
+	.order-summary {
+		width: 100%;
+		padding: 0 15px;
+		&--opened {
+			height: 80vh;
+		}
+	}
+}
+
+@media (max-height: 630px) {
+	.all-stages {
+		align-items: flex-start;
+	}
 }
