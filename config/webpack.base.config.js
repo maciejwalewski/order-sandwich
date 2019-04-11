@@ -16,6 +16,9 @@ module.exports = env => {
         port: 3000
       },
       entry: ['@babel/polyfill', APP_DIR],
+      output: {
+        path:  path.resolve(__dirname, '../docs')
+      },
       module: {
         rules: [
           {
