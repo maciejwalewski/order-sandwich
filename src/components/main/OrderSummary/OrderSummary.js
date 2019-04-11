@@ -42,7 +42,7 @@ const OrderSummary = ({ sandwichDetails, orderSuccess, orderError }) => {
           return (
             <div className="order-summary__line">
               <span>{key}:</span>
-              <span>{ingredients[key]}</span>
+              <span>{ingredients[key]} pieces</span>
             </div>
           );
         }

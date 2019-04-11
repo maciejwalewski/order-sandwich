@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ingredientFields } from '@/constants/fields';
 import { StageButtons } from '@/components/stages';
+import ingredients_choice from '@/assets/ingredients.png';
 
 const IngredientsStage = ({ currentStage, setIngredients, ingredients }) => {
   const [visible, setVisible] = useState(false);
@@ -27,8 +28,10 @@ const IngredientsStage = ({ currentStage, setIngredients, ingredients }) => {
 
   return (
     <section className={ visible ? 'stage' : 'stage stage--hidden' }>
+      <img src={ ingredients_choice } className="stage__image" />
+      <span className="stage__question indie">Add your ingredients!</span>
       {ingredientFields.map(ing => (
-        <div className="stage__choice">
+        <div key={ ing.id } className="stage__choice">
           <span
             id={ ing.id }
             className="stage__label stage__label--addOne"
