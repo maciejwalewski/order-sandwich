@@ -45,7 +45,7 @@ const OrderSummary = ({
       {ingredientsKeys.map(key => {
         if (ingredients[key] > 0) {
           return (
-            <div className="order-summary__line">
+            <div key={ key } className="order-summary__line">
               <span>{key}:</span>
               <span>{ingredients[key]} pieces</span>
             </div>

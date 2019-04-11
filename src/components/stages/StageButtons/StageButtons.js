@@ -6,7 +6,7 @@ const StageButtons = ({
   setStage,
   finishOrder
 }) => {
-  const [{ minStep, maxStep }, setState] = useState({
+  const [{ minStep, maxStep }] = useState({
     minStep: 1,
     maxStep: 3
   });
@@ -43,7 +43,7 @@ const StageButtons = ({
 StageButtons.propTypes = {
   currentStage: PropTypes.number.isRequired,
   setStage: PropTypes.func.isRequired,
-  // finishOrder: PropTypes.func.isRequired
+  finishOrder: PropTypes.func.isRequired
 }
 
 export default StageButtons;

@@ -25,7 +25,13 @@
 	background-color: $light;
 	box-shadow: 0px 5px 55px 2px #00000052;
 	border-radius: 20px;
-	padding: 20px;
+  padding: 20px;
+  
+  &__success-text {
+    color: white;
+    font-size: 20px;
+    margin: 4px 0;
+  }
 
 	&__input {
 		font-size: 22px;

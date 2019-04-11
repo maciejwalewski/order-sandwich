@@ -97,7 +97,7 @@ const AccountPage = ({
 							Sign up
             </button>
             {registerLoading && <Preloader />}
-            {registerSuccess && <span>Account created! :)</span>}
+            {registerSuccess && <span className="account-form__success-text">Account created! :)</span>}
           </form>
         </Fragment>
       )}
