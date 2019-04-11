@@ -8,10 +8,18 @@ const OrderSummary = ({
 }) => {
   const { bread, butter, ingredients } = sandwichDetails;
   const [orderOpened, toggleOrder] = useState(false);
+  const [orderUpdated, setUpdated] = useState(false);
 
   const [{ ingredientsKeys }, setState] = useState({
     ingredientsKeys: []
   });
+
+  useEffect(() => {
+    setUpdated(true);
+    setTimeout(() => {
+      setUpdated(false);
+    }, 300);
+  }, [sandwichDetails])
 
   useEffect(() => {
     if (ingredients) {
@@ -22,7 +30,7 @@ const OrderSummary = ({
 
   return (
     <section className={ `order-summary ${(orderSuccess || orderError || orderOpened) && 'order-summary--opened'}` }>
-      <header onClick={ () => toggleOrder(!orderOpened) } className="order-summary__header">
+      <header onClick={ () => toggleOrder(!orderOpened) } className={ `order-summary__header ${orderUpdated && 'order-summary__header--glow'}` }>
 				Order Summary
       </header>
       {(orderSuccess || orderError) && (
