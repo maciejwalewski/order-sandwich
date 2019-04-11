@@ -19,7 +19,7 @@
   "plugins": ["react", "jsx-a11y", "import", "prettier"],
   "rules": {
     "react/jsx-curly-spacing": ["error", "always"],
-    "max-len": [1, 70],
+    "max-len": [1, 100],
     "react/jsx-max-props-per-line": [1, { "maximum": 1, "when": "multiline" }],
     "quotes": [1, "single", { "avoidEscape": true }],
     "indent": ["error", 2]

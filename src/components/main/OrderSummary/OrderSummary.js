@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-const OrderSummary = ({ sandwichDetails, orderSuccess, orderError }) => {
+const OrderSummary = ({ 
+  sandwichDetails,
+  orderSuccess,
+  orderError
+}) => {
   const { bread, butter, ingredients } = sandwichDetails;
   const [orderOpened, toggleOrder] = useState(false);
 
@@ -50,5 +55,11 @@ const OrderSummary = ({ sandwichDetails, orderSuccess, orderError }) => {
     </section>
   );
 };
+
+OrderSummary.propTypes = {
+  sandwichDetails: PropTypes.object.isRequired,
+  orderSuccess: PropTypes.string.isRequired,
+  orderError: PropTypes.string.isRequired
+}
 
 export default OrderSummary;

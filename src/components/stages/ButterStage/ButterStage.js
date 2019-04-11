@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { butterFields } from '@/constants/fields';
 import butter_choice from '@/assets/butter_choice.png';
 import { StageButtons } from '@/components/stages';
+import PropTypes from 'prop-types';
 
 const ButterStage = ({ currentStage, setButter }) => {
   const [visible, setVisible] = useState(false);
@@ -26,7 +27,7 @@ const ButterStage = ({ currentStage, setButter }) => {
       <img src={ butter_choice } className="stage__image" />
       <span className="stage__question indie">Would You like some butter?</span>
       {butterFields.map(butter => (
-        <div className="stage__choice">
+        <div key={ butter.id } className="stage__choice">
           <input
             type={ butter.type }
             id={ butter.id }
@@ -44,5 +45,10 @@ const ButterStage = ({ currentStage, setButter }) => {
     </section>
   );
 };
+
+ButterStage.propTypes = {
+  currentStage: PropTypes.number.isRequired,
+  setButter: PropTypes.func.isRequired
+}
 
 export default ButterStage;

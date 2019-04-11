@@ -1,4 +1,10 @@
-import { SET_STAGE, RESET_ORDER, FINISH_ORDER, FINISH_ORDER_SUCCESS, FINISH_ORDER_FAIL } from '../actions/appFlow';
+import { 
+  SET_STAGE,
+  RESET_ORDER,
+  FINISH_ORDER,
+  FINISH_ORDER_SUCCESS,
+  FINISH_ORDER_FAIL
+} from '../actions/appFlow';
 
 const initialState = {
   currentStage: 1,

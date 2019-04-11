@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { breadFields } from '@/constants/fields';
 import bread_choice from '@/assets/bread_choice.png';
 import { StageButtons } from '@/components/stages';
+import PropTypes from 'prop-types';
 
-const BreadStage = ({ currentStage, setBread }) => {
+const BreadStage = ({ 
+  currentStage,
+  setBread
+}) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -28,7 +32,7 @@ const BreadStage = ({ currentStage, setBread }) => {
       </div>
       <div className="stage__part">
         {breadFields.map(bread => (
-          <div className="stage__choice">
+          <div key={ bread.id } className="stage__choice">
             <input
               name="bread"
               className="stage__input"
@@ -49,5 +53,10 @@ const BreadStage = ({ currentStage, setBread }) => {
     </section>
   );
 };
+
+BreadStage.propTypes = {
+  currentStage: PropTypes.number.isRequired,
+  setBread: PropTypes.func.isRequired
+}
 
 export default BreadStage;

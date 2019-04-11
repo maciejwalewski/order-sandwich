@@ -1,18 +1,18 @@
 export const breadFields = [
   {
     type: 'radio',
-    id: 'bread1',
-    label: 'BREAD 1'
+    id: 'baguette',
+    label: 'BAGUETTE'
   },
   {
     type: 'radio',
-    id: 'bread2',
-    label: 'BREAD 2'
+    id: 'wholewheat',
+    label: 'WHOLE WHEAT'
   },
   {
     type: 'radio',
-    id: 'bread3',
-    label: 'BREAD 3'
+    id: 'white',
+    label: 'WHITE'
   }
 ];
 

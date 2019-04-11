@@ -2,8 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { ingredientFields } from '@/constants/fields';
 import { StageButtons } from '@/components/stages';
 import ingredients_choice from '@/assets/ingredients.png';
+import PropTypes from 'prop-types';
 
-const IngredientsStage = ({ currentStage, setIngredients, ingredients }) => {
+const IngredientsStage = ({ 
+  currentStage,
+  setIngredients,
+  ingredients
+}) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -52,5 +57,11 @@ const IngredientsStage = ({ currentStage, setIngredients, ingredients }) => {
     </section>
   );
 };
+
+IngredientsStage.propTypes = {
+  currentStage: PropTypes.number.isRequired,
+  setIngredients: PropTypes.func.isRequired,
+  ingredients: PropTypes.object.isRequired
+}
 
 export default IngredientsStage;

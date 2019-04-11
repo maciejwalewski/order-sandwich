@@ -1,4 +1,9 @@
-import { SET_BREAD, SET_BUTTER, SET_INGREDIENTS, RESET_ORDER } from '../actions/sandwiches';
+import { 
+  SET_BREAD,
+  SET_BUTTER,
+  SET_INGREDIENTS,
+  RESET_ORDER
+} from '../actions/sandwiches';
 
 const initialState = {
   sandwichDetails: {

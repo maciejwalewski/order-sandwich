@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const StageButtons = ({ currentStage, setStage, finishOrder }) => {
+const StageButtons = ({ 
+  currentStage,
+  setStage,
+  finishOrder
+}) => {
   const [{ minStep, maxStep }, setState] = useState({
     minStep: 1,
     maxStep: 3
@@ -34,5 +39,11 @@ const StageButtons = ({ currentStage, setStage, finishOrder }) => {
     </nav>
   );
 };
+
+StageButtons.propTypes = {
+  currentStage: PropTypes.number.isRequired,
+  setStage: PropTypes.func.isRequired,
+  // finishOrder: PropTypes.func.isRequired
+}
 
 export default StageButtons;

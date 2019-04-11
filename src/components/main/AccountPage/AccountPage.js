@@ -2,8 +2,17 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Preloader from '@/components/sharable/Preloader';
 import { FaChevronLeft } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
-const AccountPage = ({ loggedIn, loading, authLogin, signUp, registerLoading, registerSuccess, currentUser }) => {
+const AccountPage = ({ 
+  loggedIn,
+  loading,
+  authLogin,
+  signUp,
+  registerLoading,
+  registerSuccess,
+  currentUser
+}) => {
   const [{ loginEmail, loginPassword, registerEmail, registerPassword }, setCreds] = useState({
     loginEmail: '',
     loginPassword: '',
@@ -100,5 +109,15 @@ const AccountPage = ({ loggedIn, loading, authLogin, signUp, registerLoading, re
     </section>
   );
 };
+
+AccountPage.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
+  authLogin: PropTypes.func.isRequired,
+  signUp: PropTypes.func.isRequired,
+  registerLoading: PropTypes.bool.isRequired,
+  registerSuccess: PropTypes.bool.isRequired,
+  currentUser: PropTypes.string.isRequired,
+}
 
 export default AccountPage;
