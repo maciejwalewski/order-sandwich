@@ -1,4 +1,4 @@
-import { call, put, takeLatest, all } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 
 import {
   AUTH_LOGIN_TRY,
@@ -29,9 +29,5 @@ function* trySignUp({ payload }) {
     alert(err);
   }
 }
-
-// export default function*() {
-//   yield all([takeLatest(AUTH_LOGIN_TRY, tryLogin), takeLatest(SIGN_UP_TRY, trySignUp)]);
-// }
 
 export const auth = [takeLatest(AUTH_LOGIN_TRY, tryLogin), takeLatest(SIGN_UP_TRY, trySignUp)];

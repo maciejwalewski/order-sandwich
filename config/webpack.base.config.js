@@ -52,7 +52,7 @@ module.exports = env => {
         alias: {
           '@': path.resolve(__dirname, APP_DIR)
         },
-        extensions: ['*', '.js', '.jsx'],
+        extensions: ['*', '.mjs', '.js', '.jsx'],
         enforceExtension: false
       },
       plugins: [
@@ -67,7 +67,6 @@ module.exports = env => {
         new MiniCssExtractPlugin({
           filename: 'styles/[name].css'
         })
-        // new CopyWebpackPlugin([ { from: 'src/static' } ]),
       ]
     }
   ]);

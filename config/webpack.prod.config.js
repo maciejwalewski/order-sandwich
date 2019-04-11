@@ -1,11 +1,12 @@
 var merge = require('webpack-merge');
+const webpack = require('webpack');
 
 // Plugins
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var TerserPlugin = require('terser-webpack-plugin');
 var Visualizer = require('webpack-visualizer-plugin');
-
 var baseConfig = require('./webpack.base.config');
+// var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const prodConfiguration = env => {
   return merge([
@@ -21,11 +22,18 @@ const prodConfiguration = env => {
             }
           }
         },
-        minimizer: [new UglifyJsPlugin()],
+        minimizer: [new TerserPlugin()],
       },
       plugins: [
+        new webpack.DefinePlugin({
+          'process.env': {
+            'NODE_ENV': JSON.stringify('production')
+          }
+        }),
         new OptimizeCssAssetsPlugin(),
-        new Visualizer({ filename: './statistics.html' })
+        new Visualizer({ filename: './statistics.html' }),
+        new webpack.optimize.AggressiveMergingPlugin(),
+        // new BundleAnalyzerPlugin()
       ],
     },
   ]);

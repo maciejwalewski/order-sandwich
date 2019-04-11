@@ -117,7 +117,6 @@
 
 		&:hover {
 			box-shadow: 2px 2px 20px 1px #0000004a;
-			// background-color: #ff000088;
 		}
 
 		&:not(:active) {
@@ -151,8 +150,5 @@
 	&__btn {
 		@extend .btn-white;
 		margin: 0 10px 30px;
-		// &--disabled {
-		//   @extend .btn-white--disabled;
-		// }
 	}
 }
